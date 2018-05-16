@@ -22,7 +22,7 @@ function varargout = prostate_segmentation(varargin)
 
 % Edit the above text to modify the response to help prostate_segmentation
 
-% Last Modified by GUIDE v2.5 08-May-2018 03:07:40
+% Last Modified by GUIDE v2.5 15-May-2018 15:14:54
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -94,3 +94,35 @@ function edit1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+
+
+% --- Executes on button press in Load.
+function Load_Callback(hObject, eventdata, handles)
+% hObject    handle to Load (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Load the images in the folder DICOM
+filename = imgetfile;
+global File;
+File = dicomread(filename);
+%Display
+axes(handles.Input);
+imshow(File,[0 255]);
+
+% --- Executes on button press in Save.
+function Save_Callback(hObject, eventdata, handles)
+% hObject    handle to Save (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+
+
+% --- Executes on button press in Segmentation.
+function Segmentation_Callback(hObject, eventdata, handles)
+% hObject    handle to Segmentation (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
